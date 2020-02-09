@@ -1,11 +1,13 @@
 FROM alpine:edge
 RUN apk update \
-    && apk add --no-cache dnsmasq 
+    && apk add --no-cache dnsmasq
 
 EXPOSE 53 53/udp
 
-WORKDIR /opt
+WORKDIR /opt/merakidns
 
-COPY dnsmasq.conf . 
+RUN echo '*/1  *  *  *  *    /opt/merakidns/reload-cache.sh' > /etc/crontabs/root
 
-ENTRYPOINT ["dnsmasq","--no-hosts","--conf-file=/opt/dnsmasq.conf","--stop-dns-rebind","--no-daemon"]
+COPY ./merakidns/ . 
+
+CMD['run.sh']
