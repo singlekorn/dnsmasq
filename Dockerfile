@@ -4,10 +4,10 @@ RUN apk update \
 
 EXPOSE 53 53/udp
 
-WORKDIR /opt/merakidns
+WORKDIR /opt
 
-RUN echo '*/1  *  *  *  *    /opt/merakidns/reload-cache.sh' > /etc/crontabs/root
+RUN echo '*/1  *  *  *  *    /opt/reload-cache.sh' > /etc/crontabs/root
 
 COPY ./merakidns/ . 
 
-CMD['run.sh']
+ENTRYPOINT '/opt/run.sh'

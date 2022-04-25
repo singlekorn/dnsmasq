@@ -4,4 +4,4 @@
 crond
 
 # Start dnsmasq
-dnsmasq --no-hosts --clear-on-reload --stop-dns-rebind --conf-file=/opt/dnsmasq.conf --hostsdir=/opt/hosts --no-daemon
+dnsmasq --no-hosts --clear-on-reload --stop-dns-rebind --conf-file=/opt/dnsmasq.conf --no-daemon

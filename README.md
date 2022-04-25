@@ -1,3 +1,6 @@
+# singlekorn/dnsmasq
+This project is only used for experimenting with docker
+
 # Building & Testing
 docker build . -t dnsmasq:test
 docker volume create hosts
